@@ -1,0 +1,220 @@
+@font-face {
+    font-family: Valorant;
+    src: url('../fonts/ValorantFont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    --primary-color: #292C31;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+    font-family: Valorant, Archivo, sans-serif;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10%;
+    background-image: url("../images/Backgrounds/7.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    --selected-area-img: url("../images/xicon.png");
+    --width-container: 768px;
+    --height-container: 540px;
+    --options-buttons-width: 240px;
+    --options-buttons-heigth: 124px;
+    --game-area-width: 132px;
+    --game-area-heigth: 132px:
+}
+
+/* Buttons animation */
+
+div a {
+    font-weight: 300;
+    color: #ff4655;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 0 0 1px inset rgba(236, 232, 225, 0.3);
+    position: relative;
+    display: flex;
+    padding: 3px;
+}
+
+div a.white:hover>p {
+    color: #ece8e1;
+}
+
+div a.white>p {
+    background: #ece8e1;
+    color: #0f1923;
+}
+
+div a.transparent:hover>p {
+    color: #ece8e1;
+}
+
+div a.transparent:hover>p span.text {
+    box-shadow: 0 0 0 1px #ece8e1;
+}
+
+div a.transparent>p {
+    background: #0f1923;
+    color: #ece8e1;
+}
+
+div a p {
+    height: 54px;
+    line-height: 54px;
+    box-sizing: border-box;
+    z-index: 1;
+    left: 0;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+div a p span.base {
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    left: 0;
+}
+
+div a p span.bg {
+    left: -5%;
+    position: absolute;
+    background: #ff4655;
+    width: 0;
+    height: 100%;
+    z-index: 3;
+    -webkit-transition: 0.3s ease-out all;
+    transition: 0.3s ease-out all;
+    -webkit-transform: skewX(-10deg);
+    transform: skewX(-10deg);
+}
+
+div a p span.text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+div a:hover {
+    color: #ece8e1;
+}
+
+div a:hover span.bg {
+    width: 110%;
+}
+
+/* Containers */
+
+body #container {
+    width: 100vw;
+    height: 100vh;
+    max-width: var(--width-container);
+    max-height: var(--height-container);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    transition: 0.8s;
+}
+
+body #container #options {
+    width: 256px;
+    height: 540px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: #1F2326;
+    padding: 3px;
+}
+
+body #container #options #jogo-da-velha a p {
+    font-size: 40px;
+    width: 240px;
+    height: 124px;
+    align-items: center;
+    justify-content: center;
+}
+
+body #container #options #game-mode {
+    width: 240px;
+    height: 178px;
+    font-size: 28px;
+}
+
+body #container #options #round {
+    width: 240px;
+    height: 206px;
+    background-color: var(--primary-color);
+}
+
+body #container #options #round-now {
+    display: flex;
+    width: 240px;
+    height: 142px;
+    background-color: #1F2326;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+
+body #container #game #interaction {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 512px;
+    height: 540px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+body #container #game .area {
+    transition: 0.8s;
+    width: 132px;
+    height: 132px;
+    background-color: var(--primary-color);
+    margin: 5px;
+    box-shadow: 7px 7px 3px rgb(79, 76, 76);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-position: center;
+    background-size: cover;
+}
+
+body #container #game .area:hover {
+    transition: 0.5s;
+    background-color: #FF4656;
+    background-image: var(--selected-area-img);
+}
+
+@media only screen and (max-width: 700px) {
+    body {
+        transform: scale(0.60);
+    }
+}

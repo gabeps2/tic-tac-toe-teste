@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets//styles/page-landing.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="body">
+    <div id="container">
+        <div id="options">
+            <div id="jogo-da-velha">
+                <A href="https://github.com/gabeps2" target="_blank" class="black start">
+                    <p>
+                        <span class="bg"></span>
+                        <span class="base"></span>
+                        <span class="text">JOGO DA VELHA</span>
+                    </p>
+                </A>
+            </div>
+            <div id="game-mode">
+                <A href="#" class="white pvp" id="pvp">
+                    <p>
+                        <span class="bg"></span>
+                        <span class="base"></span>
+                        <span class="text">Play PvP</span>
+                    </p>
+                </A>
+                <A href="#" class="white pvm" id="pvm">
+                    <p>
+                        <span class="bg"></span>
+                        <span class="base"></span>
+                        <span class="text">Play PvM</span>
+                    </p>
+                </A>
+                <A href="#" class="white mvm" id="mvm">
+                    <p>
+                        <span class="bg"></span>
+                        <span class="base"></span>
+                        <span class="text">Play MvM</span>
+                    </p>
+                </A>
+            </div>
+            <div id="round">
+                <A href="#" class="transparent">
+                    <p>
+                        <span class="bg"></span>
+                        <span class="base"></span>
+                        <span class="text" id = "round-text" onclick=window.location.reload()>Refresh/Round</span>
+                    </p>
+                </A>
+                <div id = "round-now"></div>
+            </div>
+        </div>
+        <div id="game">
+            <div id="interaction">
+                <div class="area" id="pos1"></div>
+                <div class="area" id="pos2"></div>
+                <div class="area" id="pos3"></div>
+                <div class="area" id="pos4"></div>
+                <div class="area" id="pos5"></div>
+                <div class="area" id="pos6"></div>
+                <div class="area" id="pos7"></div>
+                <div class="area" id="pos8"></div>
+                <div class="area" id="pos9"></div>
+            </div>
+        </div>
+    </div>
+    <script>var exports = {};</script>
+    <script src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/minmax.js"></script>
+</body>
+
+</html>
