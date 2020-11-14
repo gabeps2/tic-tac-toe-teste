@@ -4,6 +4,8 @@ import { minBy, maxBy, cloneDeep } from 'lodash'
 const computerToken = 1;
 const playerToken = 2;
 
+export var callMinmax = 0;
+
 function checkGameState(tabuleiro) {
 
     //Verificar linhas
@@ -63,6 +65,7 @@ function minmax(novoTabuleiro, profundidade, player) {
 
                 //A partir da jogada realizada, faz uma cópia do tabuleiro e chama novamente a função
                 copiaTabuleiro[i][j] = player;
+                callMinmax++;
                 const value = minmax(copiaTabuleiro, profundidade - 1, (player === playerToken) ? computerToken : playerToken)
 
                 //O resultado desta chamada é armazenado no vetor
@@ -104,9 +107,9 @@ function minmax(novoTabuleiro, profundidade, player) {
     } else if (gameState === null) {
         return 0;
     } else if (gameState === playerToken) {
-        return profundidade - 1;
+        return profundidade - 10;
     } else if (gameState === computerToken) {
-        return 1 - profundidade;
+        return 10 - profundidade;
     }
 }
 

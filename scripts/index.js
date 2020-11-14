@@ -1,4 +1,4 @@
-import moveIA from './minmax';
+import moveIA, {callMinmax} from './minmax';
 
 //Modo de jogo selecionado
 //0 = PvP, 1 = PvM, 2 = MvM
@@ -77,7 +77,6 @@ export const checkVictory = (player, tabuleiro) => {
     //         2 = victory
     //         3 = tie (empate)
 
-    console.log("teste")
     if (counter[player] < 3)
         return 0;
 
@@ -155,11 +154,14 @@ const changeStyle = (line, column, id) => {
                 if (checkVictory(2, tabuleiro) == victory) {
                     round?.setAttribute("style", 'background-color: #42f563; background-image: url("./assets/images/victory-x-icon.png")')
                     roundText?.setAttribute("data-content", "Victory!");
+                    console.log("A função minmax foi chamada " + callMinmax + " vezes");
                     return true;
+                    
                 }
                 else if (checkVictory(2, tabuleiro) == tie) {
                     round?.setAttribute("style", 'background-color: #ffea00; background-image: url("./assets/images/tie-icon.png")')
                     roundText?.setAttribute("data-content", "Empate!");
+                    console.log("A função minmax foi chamada " + callMinmax + " vezes");
                     return true;
                 }
 
@@ -175,7 +177,7 @@ const changeStyle = (line, column, id) => {
                 if (gamemode == 1 || gamemode == 2) {
                     setTimeout(() => {
 
-                        jogadaIA(tabuleiro, 0, 2)
+                        jogadaIA(tabuleiro, 0, 1)
 
                     }, 700);
                 }
@@ -194,11 +196,13 @@ const changeStyle = (line, column, id) => {
                 if (checkVictory(1, tabuleiro) == victory) {
                     round?.setAttribute("style", 'background-color: #42f563; background-image: url("./assets/images/victory-circle-icon.png")')
                     roundText?.setAttribute("data-content", "Victory!");
+                    console.log("A função minmax foi chamada " + callMinmax + " vezes");
                     return true;
                 }
                 else if (checkVictory(1, tabuleiro) == tie) {
                     round?.setAttribute("style", 'background-color: #ffea00; background-image: url("./assets/images/r2d2.png")')
                     roundText?.setAttribute("data-content", "Empate!");
+                    console.log("A função minmax foi chamada " + callMinmax + " vezes");
                     return true;
                 }
 
