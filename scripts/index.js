@@ -1,9 +1,10 @@
+import moveIA from './minmax';
 
 //Modo de jogo selecionado
 //0 = PvP, 1 = PvM, 2 = MvM
 
 // O jogo se inicia PvM
-gamemode = 1
+var gamemode = 1
 
 //Botão PvP selecionao
 var buttonPvP = document.getElementById('pvp');
@@ -69,17 +70,14 @@ var tie = 3
 var gameStatus = 0;
 
 //Verifica o status do jogos
-const checkVictory = (player, tabuleiro) => {
+export const checkVictory = (player, tabuleiro) => {
 
     //Returns: 0 = insufficient plays
     //         1 = game in progess
     //         2 = victory
     //         3 = tie (empate)
 
-    minmax(tabuleiro, 0,2);
-
-    moveAi(tabuleiro);
-
+    console.log("teste")
     if (counter[player] < 3)
         return 0;
 
@@ -176,10 +174,11 @@ const changeStyle = (line, column, id) => {
                 //Se o modo de jogo for PvM ou MvM faz uma jogada aleatória com um delay de 1s
                 if (gamemode == 1 || gamemode == 2) {
                     setTimeout(() => {
-                        randomPlay();
-                    }, 1000);
-                }
 
+                        jogadaIA(tabuleiro, 0, 2)
+
+                    }, 700);
+                }
 
             } else {
                 tabuleiro[line][column] = 1;//Marca a posição com um O
@@ -215,13 +214,20 @@ const changeStyle = (line, column, id) => {
                 if (gamemode == 2) {
                     setTimeout(() => {
                         randomPlay();
-                    }, 1000);
-
+                    }, 700);
                 }
             }
         }
     }
+}
 
+const jogadaIA = (tabuleiro, profundidade, player) => {
+    const jogada = moveIA(tabuleiro.slice(), profundidade, player);
+    const posLinha = jogada.i;
+    const posColuna = jogada.j;
+    const numTabuleiro = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+    changeStyle(posLinha, posColuna, numTabuleiro[posLinha][posColuna])
 }
 
 //Retorna um número aleatório de 1 a 9
