@@ -52,7 +52,7 @@ var vetRandomNumber = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 var numFreePositions = tabuleiro.length;
 
 //Define o turno de cada jogador - 0 = X / 1 = O
-var turn = 0;
+var turn = 1;
 
 //Registra o número de jogadas de cada player
 var counter = [0, 0];
@@ -68,6 +68,7 @@ var victory = 2;
 var tie = 3
 
 var gameStatus = 0;
+
 
 //Verifica o status do jogos
 export const checkVictory = (player, tabuleiro) => {
@@ -269,6 +270,8 @@ const randomPlay = () => {
     //Chama a função que faz a jogada e altera o style
     changeStyle(positions[numRandom].line, positions[numRandom].column, numRandom);
 }
+
+randomPlay();
 
 //Verifica os eventos no tabuleiro
 var pos1 = document.getElementById('pos1')
